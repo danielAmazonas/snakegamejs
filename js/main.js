@@ -1,7 +1,7 @@
-let canvas = document.getElementById('snake')
+let canvas = document.getElementById('snake') //criar elemento que irá rodar o jogo
 let context = canvas.getContext('2d', { antialias: true })
 let box = 32
-let snake = []
+let snake = [] //criar snake como lista, já que ela vai ser uma série de coordenadas, que quando pintadas, criam os quadradinhos
 snake[0] = {
     x: 8 * box,
     y: 8 * box
@@ -14,7 +14,7 @@ let food = {
 
 function criarBG() {
     context.fillStyle = 'dimgray'
-    context.fillRect(0, 0, 16 * box, 16 * box)
+    context.fillRect(0, 0, 16 * box, 16 * box) //desenha o retângulo usando x e y e a largura e altura setadas
 }
 
 function criarSnake() {
@@ -32,7 +32,7 @@ function drawFood() {
     context.fillRect(food.x, food.y, box, box)
 }
 
-document.addEventListener('keydown', update)
+document.addEventListener('keydown', update) //quando um evento acontece, detecta e chama uma função
 
 function update(event) {
     if(event.keyCode == 37 && direction != 'right') direction = 'left'
