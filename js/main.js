@@ -24,8 +24,8 @@ function criarSnake() {
     }
 }
 
-const img = new Image()
-img.src = './img/virus.png'
+let img = new Image()
+img.src = './img/virus' + Math.floor(Math.random() * 8) + '.png'
 
 function drawFood() {
     context.fillStyle = context.createPattern(img, 'repeat')
@@ -68,10 +68,11 @@ function iniciarGame() {
     if(direction == 'down') snakeY += box
 
     if(snakeX != food.x || snakeY != food.y) {
-        snake.pop()    
+        snake.pop()
     } else {
         food.x = Math.floor(Math.random() * 15 + 1) * box
         food.y = Math.floor(Math.random() * 15 + 1) * box
+        img.src = './img/virus' + Math.floor(Math.random() * 8) + '.png'
     }
 
     let newHead = {
